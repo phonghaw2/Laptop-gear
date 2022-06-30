@@ -1,3 +1,25 @@
+<?php 
+    session_start();
+    if(isset($_COOKIE['remember'])){
+        $token = $_COOKIE['remember'];
+        require_once '../admin-vip/connect.php';
+        $sql = "select $ from customers
+        where token = '$token' limit 1";
+        $result = mysqli_query($connect,$sql);
+        $number_rows = mysqli_num_rows($result);
+        if($number_rows == 1 ){
+            $each = mysqli_fetch_array($result);
+            $_SESSION['id'] = $each['id'];
+            $_SESSION['fullname'] = $each['fullname'];
+        };
+       
+    }
+    if(isset($_SESSION['id'])){
+        header('location:../user.php');
+        exit;
+    }
+?>
+    
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,9 +28,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../main.css">
     <link rel="stylesheet" href="../base.css">
+    <link rel="stylesheet" href="../footer.css">
     <link rel="stylesheet" href="auth.css">
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
-    <title>Sign up</title>
+    <title>Log in</title>
 </head>
 <body>
     
@@ -48,14 +71,15 @@
                         <a href="#" class="social"><i class='bx bxl-linkedin' ></i></i></a>
                     </div>
                     <span>or use your account</span>
-                    <?php if(isset($_GET['error'])) { ?>
+                    <?php if(isset($_SESSION['error'])) { ?>
                         <div class="alert-error">
                             <div>
                             There was a problem logging in. Check your email and password or create an account.
                             </div>
+                            <?php  unset($_SESSION['error']); ?>
                         </div>
                     <?php }  ?>   
-                    <input type="email" name="email" placeholder="Email" />
+                    <input type="email" name="email" placeholder="Email" autocomplete="False"/>
                     <input type="password" name="password" placeholder="Password" />
                     <span> 
                         <a href="">Forgot your password?</a>
@@ -64,48 +88,7 @@
 		        </form>
             </div>
         </div>
-        <div class="footer">
-            <div class="footer-info">
-                <h2 class="footer-info-title">ABOUT</h2>
-                <p class="footer-info-content">Laptop&Gear is for outsiders. We are a premium, hand-curated store to shop for the best gear. Find your proven favorites, as well as new athlete-founded and designer-driven brands that are hard to find anywhere else. </p>
-            </div>
-            
-            <div class="footer-content">
-                <h1>Laptop & Gear</h1>
-                <p>--my 1st pet-project--</p>
-            </div>
-            <div class="footer-social">
-                <img src="../image/97195144_p0.jpg" alt="">
-                <div class="footer-link">
-                    <ul>
-                        <li>
-                            <a href="">
-                                <i class='bx bxs-phone'></i>
-                                <span>0974990455</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <i class='bx bxl-facebook' ></i>
-                                <span>fb.com/phonghaw2</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <i class='bx bxl-github' ></i>
-                                <span>github.com/phong25t25t</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                            <i class='bx bxl-linkedin' ></i>
-                                <span>@phonghaw2</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+        <?php include '../footer.php';  ?>
     </div>
 </body>
 </html>

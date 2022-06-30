@@ -10,7 +10,9 @@
     $number_rows = mysqli_fetch_array($result)['count(*)'];
 
     if($number_rows == 1) {
-        header('location:signup.php?error=Email already used');
+        session_start();
+        $_SESSION['error'] = 'Email already used';
+        header('location:signup.php');
         exit;
     }
 
@@ -19,14 +21,15 @@
     mysqli_query($connect,$sql);
 
 
-    $sql = "select id from customers where email = '$email'";
-    $result = mysqli_query($connect,$sql);
-    $id = mysqli_fetch_array($result)['id'];
-    session_start();
-    $_SESSION['fullname'] = $fullname;
-    $_SESSION['id'] = $id;
+    // $sql = "select id from customers where email = '$email'";
+    // $result = mysqli_query($connect,$sql);
+    // $id = mysqli_fetch_array($result)['id'];
+    // session_start();
+    // $_SESSION['fullname'] = $fullname;
+    // $_SESSION['id'] = $id;
 
-
+    
+    header('location:login.php');
     mysqli_close($connect);
 
 ?>

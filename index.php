@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="base.css">
-    
+    <link rel="stylesheet" href="footer.css">
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <title>Customer Display</title>
 </head>
@@ -24,7 +24,7 @@
             <div class="header-right">
                 <button class="mode-switch"></button>
                 <div class="header-gap-auth header-btn">
-                    <a href="">
+                    <a href="join/login.php">
                     <span>Login</span>
                     </a>
                     
@@ -87,6 +87,7 @@
             <div class="products-section"></div>
             <div class="sub-content"></div>
         </div>
+        <?php include 'footer.php';  ?>
     </div>
    
 </body>

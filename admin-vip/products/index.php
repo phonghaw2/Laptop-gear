@@ -75,11 +75,22 @@
            </div>
         <?php  } ?>   
         <div class="pagination">
-            <?php for($i = 1 ; $i <= $pages; $i++) { ?>
-                <a href="?page=<?php echo $i ?>&search=<?php echo $search ?>">
-                    <?php echo $i  ?>
-                </a>
-            <?php }  ?>
+            <ul class="pagination-list">
+                <li class="pagination-item">
+                    <a href="#"><i class="fa-solid fa-angle-left"></i></a>
+                </li>
+                <?php for($i = 1 ; $i <= $pages; $i++) { ?>
+                    <li class="pagination-item">
+                        <a href="?page=<?php echo $i ?>&search=<?php echo $search ?>">
+                            <?php echo $i  ?>
+                         </a>
+                    </li>     
+                 <?php }  ?>
+                <li class="pagination-item">
+                    <a href=""><i class="fa-solid fa-angle-right"></i></a>
+                </li>
+            </ul>
+            
         </div>    
     </div>  
      

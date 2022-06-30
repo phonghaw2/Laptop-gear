@@ -12,13 +12,20 @@
     if($number_rows == 1) {
         session_start();
         $each = mysqli_fetch_array($result);
+        $id = $each['id'];
         $_SESSION['fullname'] = $each['fullname'];
-        $_SESSION['id'] = $each['id'];
-
-        header('location:user.php');
+        $_SESSION['id'] = $id;
+        $token = uniqid('user_', true);
+        $sql = "update customers
+        set
+        token = '$token' where id = '$id'";
+        mysqli_query($connect,$sql);
+        setcookie('remember', $token, time() + 86400*30);
+        header('location:../user.php');
         exit;
     }
-
+    session_start();
+    $_SESSION['error'] = 'Login False';
     header('location:login.php?error=Login False');
 
 

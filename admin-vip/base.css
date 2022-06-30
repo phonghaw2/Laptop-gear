@@ -40,13 +40,7 @@ a{
   background-color: transparent;
 }
 
-.pagination{
-  min-width: 90px;
-  position: absolute;
-  right: 50px;
-  border: 1px solid var(--border-color);
-  padding: 4px;
-}
+
 
 @keyframes slideIn {
     from {
@@ -62,3 +56,31 @@ a{
       opacity: 0;
     }
   }
+
+ /* Pagination */
+ .pagination{
+  min-width: 90px;
+  position: absolute;
+  right: 50px;
+  border: 1px solid var(--border-color);
+  padding: 4px;
+}
+
+.pagination-list{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+}
+
+.pagination-list li a {
+  text-decoration: none;
+  font-size: 1.6 rem;
+}
+
+.pagination-list li a:hover{
+  color : rgba(161,161,170,1);
+}
+.pagination-item{
+  margin: 0 4px;
+}

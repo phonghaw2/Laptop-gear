@@ -16,7 +16,7 @@ form {
 	padding: 0 50px;
 	height: 100%;
 	text-align: center;
-	min-width: 363px;
+	width: 363px;
 }
 
 h1 {
@@ -90,110 +90,3 @@ form button {
     margin-top: 32px;
 }
 
-.footer{
-	background: #e2d8ce;
-	display: flex;
-	width: 100vw;
-	height: 250px;
-	margin-top: 10px;
-	align-items: center;
-	justify-content: center;
-}
-.footer-info{
-	flex: 1;
-	color: #1c1b1b;
-	padding: 34px 50px; 
-	
-}
-.footer-info-title{
-	font-weight: 500;
-    font-style: normal;
-    color: #1c1b1b;
-    transition: color .2s ease-in-out;
-    letter-spacing: .2em;
-    text-transform: uppercase;
-	margin-bottom: 20px;
-}
-.footer-info-content{
-	word-break: break-word;
-    color: #6a6a6a;
-	font-size: 1.6rem;
-	padding-right: 100px;
-}
-.footer-social{
-	flex: 1;
-	height: 100%;
-	padding: 20px 16px;
-	
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-.footer-social img{
-	height: 90%;
-	border-radius: 50% 50% 0 0;
-}
-.footer-content{
-	flex: 1;
-	text-align: center;
-}
-.footer-content h1 {
-	margin: 10px 0 ;
-	font-size: 3.5rem;
-}
-.footer-content p{
-	font-size: 1.6rem;
-}
-.footer-link ul {
-    margin-top: 6px;  
-}
-
-.footer-link ul li{
-    position: relative;
-    list-style: none;
-    min-width: 150px;
-    height: 20px;
-    line-height: 20px;
-}
-
-.footer-link ul li a{
-    
-    width: 100%;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: #1c1b1b;
-    transition: all .4s ease;
-	margin-left: 32px;
-    
-}
-.footer-link ul li a i{
-    
-    display: block; 
-    height: 20px;
-    line-height: 20px;
-    text-align: center;
-    font-size: 2rem;
-	margin-bottom: 8px;
-}
-.footer-link ul li a span{
-    position: relative;
-    display: block;
-    padding-left: 10px;
-    height: 20px;
-    line-height: 20px;
-    white-space: nowrap;
-}
-
-/* error */
-
-.alert-error{
-	margin-top: 8px;
-    margin-bottom: 8px;
-	background-color: #fcaea0;
-    border-color: transparent;
-	padding: 16px;
-	text-align: left;
-    position: relative;
-	width: 100%;
-}
