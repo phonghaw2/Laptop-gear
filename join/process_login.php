@@ -3,7 +3,7 @@
     $email = $_POST['email'];
     $password = $_POST['password'];
     
-    require_once '../admin-vip/connect.php';
+    require_once '../connect.php';
     $sql = "select * from customers 
     where email = '$email' and password = '$password'";
     $result = mysqli_query($connect,$sql);
@@ -15,7 +15,7 @@
         $id = $each['id'];
         $_SESSION['fullname'] = $each['fullname'];
         $_SESSION['id'] = $id;
-        $token = uniqid('user_', true);
+        $token = uniqid('user_', true) . time();
         $sql = "update customers
         set
         token = '$token' where id = '$id'";

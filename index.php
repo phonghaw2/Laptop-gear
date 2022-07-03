@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="admin-vip/products/photos/">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="base.css">
-    <link rel="stylesheet" href="footer.css">
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <title>Customer Display</title>
 </head>
@@ -84,11 +86,56 @@
                     </li>
                 </ul>
             </div>
-            <div class="products-section"></div>
+            <div class="products-section">
+                <div class="product-laptop-container">
+                    <div class="product-hd">
+                        <div class="product-title">Laptop</div>
+ 
+                    </div>
+                    <ul class="swiper mySwiper product-slider">
+                        <?php include 'products-section/laptop.php'  ?>
+                        <!-- <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div> -->
+                        <div class="prev">
+                            <i class='bx bxs-chevron-left-circle'></i>
+                        </div>
+                        <div class="next">
+                            <i class='bx bxs-chevron-right-circle'></i>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </ul>
+                </div>
+            </div>
             <div class="sub-content"></div>
-        </div>
-        <?php include 'footer.php';  ?>
+        </div>       
     </div>
-   
+    <?php include 'footer.php';  ?>
+    <?php mysqli_close($connect);  ?>
+    
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 4,
+            spaceBetween: 30,
+            slidesPerGroup: 4,
+            loop: true,
+            loopFillGroupWithBlank: true,
+            pagination: {
+            el: ".swiper-pagination",
+            clickable: true,    
+            },
+            navigation: {
+            nextEl: ".next",
+            prevEl: ".prev",
+            // nextEl: ".next",
+            // prevEl: "prev",
+            },
+        });
+    </script>
+    
 </body>
+
 </html>

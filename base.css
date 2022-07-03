@@ -9,7 +9,8 @@
     --border-color : rgba(39,39,42,1);
     --main-color : #1f1c2e;
     --background-customer-color : #fff;
-    
+    --btn-color : #c3cff4;
+    --cart-color: #e47470;
 }
 
 
@@ -30,14 +31,21 @@ html{
 
 body{
     display: flex;
-    
+    flex-direction: column;
     width: 100%;
-    overflow: hidden;
+    
 
 }
+
+ol, ul {
+  list-style: none;
+  list-style-type: none;
+}
+
 a{
   color: var(--text-color);
   background-color: transparent;
+  text-decoration: none;
 }
 
 .pagination{
@@ -57,8 +65,18 @@ a{
     }
   }
   
-  @keyframes fadeout {
+@keyframes fadeout {
     to {
       opacity: 0;
+    }
+  }
+@keyframes slideInRight {
+    from {
+      opacity: .5;
+      transform: translateX(-200px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
     }
   }

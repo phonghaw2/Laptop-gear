@@ -4,7 +4,7 @@
     $email = $_POST['email'];
     $password = $_POST['password'];
     
-    require_once '../admin-vip/connect.php';
+    require_once '../connect.php';
     $sql = "select count(*) from customers where email = '$email'";
     $result = mysqli_query($connect,$sql);
     $number_rows = mysqli_fetch_array($result)['count(*)'];

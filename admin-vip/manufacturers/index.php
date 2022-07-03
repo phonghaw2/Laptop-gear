@@ -26,7 +26,10 @@
         
         <?php 
             require_once '../connect.php';
-            $sql = 'select * from manufacturers';
+            // $sql = 'select * from manufacturers';
+            $sql = " select manufacturers.id,manufacturers.name, count(*) FROM `manufacturers` 
+            JOIN products ON manufacturers.id = products.manufacturer_id GROUP by manufacturers.id";
+            
             $result = mysqli_query($connect,$sql);
         ?>
         <div class="table">
@@ -40,7 +43,7 @@
            <div class="table-item">
                 <div class="table-item-content"><?php echo $each['id'] ?></div>
                 <div class="table-item-content"><?php echo $each['name'] ?></div>
-                <div class="table-item-content"><?php echo $each['mount_product'] ?></div>
+                <div class="table-item-content"><?php echo $each['count(*)'] ?></div>
                 <div class="table-item-content"> 
                     <a href="form_update.php?id=<?php echo $each['id'] ?>"><ion-icon name="create"></ion-icon></a>
                 </div>
