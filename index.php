@@ -17,7 +17,7 @@
         <div class="header">
             <div class="header-left">
                 <span class="web-icon"></span>
-                <a class="web-name" href="index.php">Laptop&Gear</a>               
+                <a class="web-name" href="../index.php">Laptop&Gear</a>               
                 <div class="search-wrapper">
                     <input class="search-input" type="search" placeholder="Search">
                     <ion-icon name="search"></ion-icon>
@@ -25,14 +25,20 @@
             </div>
             <div class="header-right">
                 <button class="mode-switch"></button>
-                <div class="header-gap-auth header-btn">
-                    <a href="join/login.php">
+                <div class="header-gap-auth  popper-hd">
+                    <a class="cart-btn btn-icon-large header-btn" href="">
+                        <i class='bx bx-cart-alt' ></i>
+                    </a>
+                    
+                </div>
+                <div class="header-gap-auth  ">
+                    <a class="btn-icon-large header-btn" href="join/login.php">
                     <span>Login</span>
                     </a>
                     
                 </div>
-                <div class="header-gap-auth header-btn">
-                    <a href="join/signup.php">
+                <div class="header-gap-auth ">
+                    <a class="btn-icon-large header-btn" href="join/signup.php">
                     <span>Sign up</span>
                     </a>
                     
@@ -96,6 +102,22 @@
                         <?php include 'products-section/laptop.php'  ?>
                         <!-- <div class="swiper-button-next"></div>
                         <div class="swiper-button-prev"></div> -->
+                        <div class="prev">
+                            <i class='bx bxs-chevron-left-circle'></i>
+                        </div>
+                        <div class="next">
+                            <i class='bx bxs-chevron-right-circle'></i>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </ul>
+                </div>
+                <div class="product-mouse-container">
+                    <div class="product-hd">
+                        <div class="product-title">Mouse</div>
+ 
+                    </div>
+                    <ul class="swiper mySwiper product-slider">
+                        <?php include 'products-section/mouse.php'  ?>
                         <div class="prev">
                             <i class='bx bxs-chevron-left-circle'></i>
                         </div>

@@ -12,13 +12,12 @@
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <title>Sign up</title>
 </head>
-<body>
-    
+<body> 
     <div class="container">
         <div class="header">
             <div class="header-left">
                 <span class="web-icon"></span>
-                <a class="web-name" href="index.php">Laptop&Gear</a>               
+                <a class="web-name" href="../index.php">Laptop&Gear</a>               
                 <div class="search-wrapper">
                     <input class="search-input" type="search" placeholder="Search">
                     <ion-icon name="search"></ion-icon>
@@ -67,5 +66,6 @@
         </div>
         <?php include '../footer.php';  ?>
     </div>
+    
 </body>
 </html>

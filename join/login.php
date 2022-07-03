@@ -39,7 +39,7 @@
         <div class="header">
             <div class="header-left">
                 <span class="web-icon"></span>
-                <a class="web-name" href="index.php">Laptop&Gear</a>               
+                <a class="web-name" href="../index.php">Laptop&Gear</a>               
                 <div class="search-wrapper">
                     <input class="search-input" type="search" placeholder="Search">
                     <ion-icon name="search"></ion-icon>
@@ -90,5 +90,6 @@
         </div>
         <?php include '../footer.php';  ?>
     </div>
+    
 </body>
 </html>

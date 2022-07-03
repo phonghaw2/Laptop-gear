@@ -2,6 +2,7 @@
 session_start();
 if(isset($_SESSION['cart'])){
     $cart = $_SESSION['cart'];
+    $sum = 0;
 }
 
 ?>
@@ -98,7 +99,7 @@ if(isset($_SESSION['cart'])){
                         <i class='bx bx-cart' ></i>
                         <h2> CART </h2>
                     </div>
-                    <?php foreach ($cart as $id => $each) { ?>
+                    <?php foreach ($cart as $id => $each) { ?> 
                         <div class="cart-item">
                             <div class="div-cart-item">
                                 <div class="product-card-img">
@@ -123,7 +124,7 @@ if(isset($_SESSION['cart'])){
                                     <div class="sc-action-link">
                                         <div class="change-quantity">
                                             <a href="update-quantity.php?id=<?php echo $id?>&type=decre"><i class='bx bx-minus' ></i></a>
-                                            <span><?php echo $each['quantity']  ?></span>
+                                            <span><?php echo $each['quantity']?></span>
                                             <a href="update-quantity.php?id=<?php echo $id?>&type=incre"><i class='bx bx-plus'></i></a>
                                         </div>
                                         <div class="action-link">
@@ -135,8 +136,16 @@ if(isset($_SESSION['cart'])){
                                     
                                 </div>
                             </div>
-                            <div class="price-of-card"></div>
+                            <div class="price-of-card">
+                                <span>
+                                    <?php
+                                        $re_price = floatval($each['price'])*$each['quantity'];
+                                        echo sprintf('%0.3f', $re_price). '.000' ;
+                                     ?>
+                                </span>
+                            </div>
                         </div>
+                        <?php $sum = $sum + $re_price;  ?>
                     <?php }  ?>
                 </div>
             </div> 
@@ -147,7 +156,7 @@ if(isset($_SESSION['cart'])){
                     <div class="price-summary">
                         <div class="price-summary-line">
                             <span class="price-summary-line_title">Original Price</span>
-                            <span class="price-summary-line__content"> <!-- Echo sum- price day --></span>
+                            <span class="price-summary-line__content"> <?php echo sprintf('%0.3f', $sum) . '.000'?></span>
                         </div>
                         <div class="price-summary-line">
                             <span class="price-summary-line_title">Savings</span>
@@ -160,7 +169,7 @@ if(isset($_SESSION['cart'])){
                         <hr class="price-summary__hr" aria-hidden="true">
                         <div class="below-line">
                             <span>Total</span>
-                            <div> <!-- echo sum-price --></div>
+                            <span> <?php echo sprintf('%0.3f', $sum) . '.000'?></span>
                         </div>
                     </div>
                 </div>

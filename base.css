@@ -23,6 +23,7 @@
 }
 
 html{
+    width: 100%;
     font-size: 62.5%;
     line-height: 2rem;
     font-family: 'Poppins', sans-serif;
