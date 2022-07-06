@@ -21,12 +21,14 @@
         token = '$token' where id = '$id'";
         mysqli_query($connect,$sql);
         setcookie('remember', $token, time() + 86400*30);
-        header('location:../user.php');
+        header("location:../");
         exit;
-    }
-    session_start();
-    $_SESSION['error'] = 'Login False';
-    header('location:login.php?error=Login False');
+    } else {
+        session_start();
+        $_SESSION['error'] = 'Login False';
+        header('location:login.php?error=Login False');
+    };
+   
 
 
     mysqli_close($connect);

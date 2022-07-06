@@ -21,13 +21,6 @@
     mysqli_query($connect,$sql);
 
 
-    // $sql = "select id from customers where email = '$email'";
-    // $result = mysqli_query($connect,$sql);
-    // $id = mysqli_fetch_array($result)['id'];
-    // session_start();
-    // $_SESSION['fullname'] = $fullname;
-    // $_SESSION['id'] = $id;
-
     
     header('location:login.php');
     mysqli_close($connect);

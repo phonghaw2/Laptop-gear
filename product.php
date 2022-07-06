@@ -32,6 +32,12 @@
             </div>
             <div class="header-right">
                 <button class="mode-switch"></button>
+                <div class="header-gap-auth  popper-hd">
+                    <a class="cart-btn btn-icon-large header-btn" href="cart/">
+                        <i class='bx bx-cart-alt' ></i>
+                    </a>
+                    
+                </div>
                 <div class="header-gap-auth header-btn">
                     <a href="join/login.php">
                     <span>Login</span>

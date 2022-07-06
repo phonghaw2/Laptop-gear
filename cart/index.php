@@ -1,8 +1,8 @@
 <?php 
 session_start();
-if(isset($_SESSION['cart'])){
+$sum = 0;
+if(isset($_SESSION['cart'])) {
     $cart = $_SESSION['cart'];
-    $sum = 0;
 }
 
 ?>
@@ -21,6 +21,22 @@ if(isset($_SESSION['cart'])){
 </head>
 <body>
     <div class="container">
+    <?php if(isset($_SESSION['purchase_success'])) { ?>
+        <div id="toast">
+            <div class="toast_success">
+            <div class="toast_icon">
+                <i class='bx bx-check-circle'></i>
+            </div>
+            <div class="toast_body">
+                <h3 class="toast_title"><?php echo ($_SESSION['purchase_success']) ?></h3>
+            </div>
+            <div class="toast_close">
+                <i class='bx bxs-x-circle'></i>
+            </div>
+            </div>
+        </div>
+        <?php  unset($_SESSION['purchase_success']); ?>                        
+    <?php }  ?> 
         <div class="header">
             <div class="header-left">
                 <span class="web-icon"></span>
@@ -32,18 +48,33 @@ if(isset($_SESSION['cart'])){
             </div>
             <div class="header-right">
                 <button class="mode-switch"></button>
-                <div class="header-gap-auth header-btn">
-                    <a href="join/login.php">
+                <div class="header-gap-auth  popper-hd">
+                    <a class="cart-btn btn-icon-large header-btn" href="cart/">
+                        <i class='bx bx-cart-alt' ></i>
+                    </a>
+                    
+                </div>
+                <?php if(isset($_SESSION['id'])){  ?>
+                    <div class="header-gap-auth header-btn">
+                        <a href="../join/logout.php">
+                        <span>Log out</span>
+                        </a>
+                        
+                    </div>
+                <?php } else { ?>
+                <div class="header-gap-auth  ">
+                    <a class="btn-icon-large header-btn" href="join/login.php">
                     <span>Login</span>
                     </a>
                     
                 </div>
-                <div class="header-gap-auth header-btn">
-                    <a href="join/signup.php">
+                <div class="header-gap-auth ">
+                    <a class="btn-icon-large header-btn" href="join/signup.php">
                     <span>Sign up</span>
                     </a>
                     
                 </div>
+                <?php  }  ?>
             </div>
         </div>
         <div class="body-content">
@@ -99,54 +130,68 @@ if(isset($_SESSION['cart'])){
                         <i class='bx bx-cart' ></i>
                         <h2> CART </h2>
                     </div>
-                    <?php foreach ($cart as $id => $each) { ?> 
-                        <div class="cart-item">
-                            <div class="div-cart-item">
-                                <div class="product-card-img">
-                                    <a href="../product.php?id=<?php echo $id?>">
-                                        <img src="../admin-vip/products/photos/<?php echo $each['image']  ?>" alt="product-img">
-                                    </a>
-                                    
-                                </div>
-                                <div class="product-card-info">
-                                    <div > 
-                                        <span class="sc-product-title"><?php echo $each['name'] ?></span> 
+                    <?php if(empty($_SESSION['cart'])) { ?>
+                        <div class="cart-empty">
+                            <h2>There are no products in the cart!</h2>
+                        </div>
+                        <div class="cart-empty">
+                            <a href="../index.php">
+                                <i class='bx bx-arrow-back'></i>
+                                <span>Keep buying</span>
+                            </a>
+                        </div>
+                        <div class="link-section">
+                            <a href="../join/login.php"><button class="button">Sign in to your account</button></a>
+                            <a href="../join/signup.php"><button class="button">Sign up now</button></a>
+                        </div>
+                    <?php } else {?>
+                            <?php foreach ($cart as $id => $each) { ?> 
+                                <div class="cart-item">
+                                    <div class="div-cart-item">
+                                        <div class="product-card-img">
+                                            <a href="../product.php?id=<?php echo $id?>">
+                                                <img src="../admin-vip/products/photos/<?php echo $each['image']  ?>" alt="product-img">
+                                            </a>
+                                            
+                                        </div>
+                                        <div class="product-card-info">
+                                            <div > 
+                                                <span class="sc-product-title"><?php echo $each['name'] ?></span> 
+                                            </div>
+                                            <div>
+                                                <span class="sc-product-availability a-size-small">In Stock</span>
+                                            </div>
+                                            <div>
+                                                <span class="a-size-small">
+                                                    <span>Style: </span>
+                                                    <span>---truyen cai style vao</span>
+                                                </span>
+                                            </div>
+                                            <div class="sc-action-link">
+                                                <div class="change-quantity">
+                                                    <a href="update-quantity.php?id=<?php echo $id?>&type=decre"><i class='bx bx-minus' ></i></a>
+                                                    <span><?php echo $each['quantity']?></span>
+                                                    <a href="update-quantity.php?id=<?php echo $id?>&type=incre"><i class='bx bx-plus'></i></a>
+                                                </div>
+                                                <div class="action-link">
+                                                    <a href="delete-cart-item.php?id=<?php echo $id?>">
+                                                        <span>Delete</span>
+                                                    </a>     
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
                                     </div>
-                                    <div>
-                                        <span class="sc-product-availability a-size-small">In Stock</span>
-                                    </div>
-                                    <div>
-                                        <span class="a-size-small">
-                                            <span>Style: </span>
-                                            <span>---truyen cai style vao</span>
+                                    <div class="price-of-card">
+                                        <span>
+                                            <?php $re_price = ($each['price'])*$each['quantity'];
+                                            echo number_format($re_price) ?>
                                         </span>
                                     </div>
-                                    <div class="sc-action-link">
-                                        <div class="change-quantity">
-                                            <a href="update-quantity.php?id=<?php echo $id?>&type=decre"><i class='bx bx-minus' ></i></a>
-                                            <span><?php echo $each['quantity']?></span>
-                                            <a href="update-quantity.php?id=<?php echo $id?>&type=incre"><i class='bx bx-plus'></i></a>
-                                        </div>
-                                        <div class="action-link">
-                                            <a href="delete-cart-item.php?id=<?php echo $id?>">
-                                                <span>Delete</span>
-                                            </a>     
-                                        </div>
-                                    </div>
-                                    
                                 </div>
-                            </div>
-                            <div class="price-of-card">
-                                <span>
-                                    <?php
-                                        $re_price = floatval($each['price'])*$each['quantity'];
-                                        echo sprintf('%0.3f', $re_price). '.000' ;
-                                     ?>
-                                </span>
-                            </div>
-                        </div>
-                        <?php $sum = $sum + $re_price;  ?>
-                    <?php }  ?>
+                                <?php $sum = $sum + $re_price;  ?>
+                            <?php }  ?>
+                        <?php }  ?>
                 </div>
             </div> 
             <div class="sub-content">
@@ -156,7 +201,7 @@ if(isset($_SESSION['cart'])){
                     <div class="price-summary">
                         <div class="price-summary-line">
                             <span class="price-summary-line_title">Original Price</span>
-                            <span class="price-summary-line__content"> <?php echo sprintf('%0.3f', $sum) . '.000'?></span>
+                            <span class="price-summary-line__content"> <?php echo number_format($sum)?></span>
                         </div>
                         <div class="price-summary-line">
                             <span class="price-summary-line_title">Savings</span>
@@ -169,8 +214,11 @@ if(isset($_SESSION['cart'])){
                         <hr class="price-summary__hr" aria-hidden="true">
                         <div class="below-line">
                             <span>Total</span>
-                            <span> <?php echo sprintf('%0.3f', $sum) . '.000'?></span>
+                            <span> <?php echo number_format($sum)?></span>
                         </div>
+                    </div>
+                    <div class="proceed">
+                        <a href="checkout/"><button class="button checkout">Proceed to checkout</button></a>
                     </div>
                 </div>
             </div>

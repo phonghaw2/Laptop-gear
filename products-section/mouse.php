@@ -1,7 +1,7 @@
 <?php 
     require_once 'connect.php';
 $sql = "select * from products
-    where id % 2 = 0 and style_id = 2 limit 9";  //them dieu kien where de ra limit 9
+    where id % 2 = 0 and style_id = 2 limit 12";  //them dieu kien where de ra limit 9
 $result = mysqli_query($connect,$sql);
 ?>
 <div class="swiper-wrapper">
@@ -15,7 +15,7 @@ $result = mysqli_query($connect,$sql);
                     </div>
                     <div class="product-info">
                         <h4><?php echo $each['name'] ?></h4>
-                        <p><?php echo $each['price'] ?></p>
+                        <p><?php echo number_format($each['price']) ?></p>
                     </div>
                 </a>
                 </div>

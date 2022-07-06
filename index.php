@@ -1,3 +1,21 @@
+<?php 
+session_start();
+if(isset($_COOKIE['remember'])){
+    $token = $_COOKIE['remember'];
+    require_once '../admin-vip/connect.php';
+    $sql = "select $ from customers
+    where token = '$token' limit 1";
+    $result = mysqli_query($connect,$sql);
+    $number_rows = mysqli_num_rows($result);
+    if($number_rows == 1 ){
+        $each = mysqli_fetch_array($result);
+        $_SESSION['id'] = $each['id'];
+        $_SESSION['fullname'] = $each['fullname'];
+    };
+   
+};
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,11 +44,19 @@
             <div class="header-right">
                 <button class="mode-switch"></button>
                 <div class="header-gap-auth  popper-hd">
-                    <a class="cart-btn btn-icon-large header-btn" href="">
+                    <a class="cart-btn btn-icon-large header-btn" href="cart/">
                         <i class='bx bx-cart-alt' ></i>
                     </a>
                     
                 </div>
+                <?php if(isset($_SESSION['id'])){  ?>
+                    <div class="header-gap-auth header-btn">
+                        <a href="join/logout.php">
+                        <span>Log out</span>
+                        </a>
+                        
+                    </div>
+                <?php } else { ?>
                 <div class="header-gap-auth  ">
                     <a class="btn-icon-large header-btn" href="join/login.php">
                     <span>Login</span>
@@ -43,6 +69,7 @@
                     </a>
                     
                 </div>
+                <?php  }  ?>
             </div>
         </div>
         <div class="body-content">
@@ -96,12 +123,9 @@
                 <div class="product-laptop-container">
                     <div class="product-hd">
                         <div class="product-title">Laptop</div>
- 
                     </div>
                     <ul class="swiper mySwiper product-slider">
                         <?php include 'products-section/laptop.php'  ?>
-                        <!-- <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div> -->
                         <div class="prev">
                             <i class='bx bxs-chevron-left-circle'></i>
                         </div>
@@ -114,10 +138,39 @@
                 <div class="product-mouse-container">
                     <div class="product-hd">
                         <div class="product-title">Mouse</div>
- 
                     </div>
                     <ul class="swiper mySwiper product-slider">
                         <?php include 'products-section/mouse.php'  ?>
+                        <div class="prev">
+                            <i class='bx bxs-chevron-left-circle'></i>
+                        </div>
+                        <div class="next">
+                            <i class='bx bxs-chevron-right-circle'></i>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </ul>
+                </div>
+                <div class="product-keyboard-container">
+                    <div class="product-hd">
+                        <div class="product-title">Keyboard</div>
+                    </div>
+                    <ul class="swiper mySwiper product-slider">
+                        <?php include 'products-section/keyboard.php'  ?>
+                        <div class="prev">
+                            <i class='bx bxs-chevron-left-circle'></i>
+                        </div>
+                        <div class="next">
+                            <i class='bx bxs-chevron-right-circle'></i>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </ul>
+                </div>
+                <div class="product-headphone-container">
+                    <div class="product-hd">
+                        <div class="product-title">Headphone</div>
+                    </div>
+                    <ul class="swiper mySwiper product-slider">
+                        <?php include 'products-section/headphone.php'  ?>
                         <div class="prev">
                             <i class='bx bxs-chevron-left-circle'></i>
                         </div>

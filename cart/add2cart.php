@@ -17,7 +17,8 @@ if(empty($_SESSION['cart'][$id])){
 }
 
 
-echo json_encode($_SESSION['cart']);
+header('location:index.php')
+
 
 
 

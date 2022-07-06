@@ -111,3 +111,60 @@
 		display: none;
 	}
 }
+/* TOAST nha mn */
+#toast{
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    z-index: 99;
+    min-width: 380px;
+    max-width: 400px;
+}
+
+.toast_success{
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 2px;
+    padding: 16px 0;
+    min-width: 380px;
+    max-width: 400px;
+    border-left: 4px solid rgb(76, 247, 99);
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.08) ;
+    animation: slideIn ease .3s , fadeout linear 1s 3s forwards;
+}
+.toast_error{
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 2px;
+    padding: 16px 0;
+    min-width: 380px;
+    max-width: 400px;
+    border-left: 4px solid rgb(250, 76, 76);
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.08) ;
+    animation: slideIn ease .3s , fadeout linear 1s 3s forwards;
+}
+
+.toast_error .toast_icon{
+    font-size: 1.8rem;
+    padding: 0 16px;
+    color: rgb(250, 76, 76);
+}
+.toast_success .toast_icon{
+    font-size: 1.8rem;
+    padding: 0 16px;
+    color: rgb(76, 247, 99);
+}
+.toast_body{
+  flex-grow: 1;
+}
+.toast_title{
+    font-size: 1.8rem;
+    color: var(--background-color);
+}
+.toast_success .toast_close{
+    font-size: 1.8rem;
+    padding: 0 16px;
+    cursor: pointer;
+}

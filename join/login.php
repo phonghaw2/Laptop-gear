@@ -3,7 +3,7 @@
     if(isset($_COOKIE['remember'])){
         $token = $_COOKIE['remember'];
         require_once '../admin-vip/connect.php';
-        $sql = "select $ from customers
+        $sql = "select * from customers
         where token = '$token' limit 1";
         $result = mysqli_query($connect,$sql);
         $number_rows = mysqli_num_rows($result);
@@ -15,7 +15,7 @@
        
     }
     if(isset($_SESSION['id'])){
-        header('location:../user.php');
+        header('location:../');
         exit;
     }
 ?>
@@ -47,6 +47,12 @@
             </div>
             <div class="header-right">
                 <button class="mode-switch"></button>
+                <div class="header-gap-auth  popper-hd">
+                    <a class="cart-btn btn-icon-large header-btn" href="../cart/">
+                        <i class='bx bx-cart-alt' ></i>
+                    </a>
+                    
+                </div>
                 <div class="header-gap-auth header-btn">
                     <a href="">
                     <span>Login</span>
