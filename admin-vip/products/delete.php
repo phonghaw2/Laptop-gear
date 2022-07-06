@@ -1,4 +1,5 @@
-<?php 
+
+<?php require '../check_admin.php' ;
     if(empty($_GET['id']) ) {
     
         header('location:form_update.php?error=select ID to remove ');

@@ -40,7 +40,11 @@
     <?php  
         } 
     ?>
+
+
+
     <script>
+ 
       const toast = document.getElementById('toast');
       if (toast) {
         setTimeout(function() {

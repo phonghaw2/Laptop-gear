@@ -1,4 +1,4 @@
-<?php 
+<?php require '../check_admin.php' ;
 if(empty($_POST['name']) || empty($_POST['price'])) {
     
     header('location:form_insert.php?error=Please fill out the information ');

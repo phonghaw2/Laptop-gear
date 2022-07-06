@@ -39,7 +39,61 @@ a{
   color: var(--text-color);
   background-color: transparent;
 }
+.sign-up-container form {
+	background-color: #FFFFFF;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 0 50px;
+	height: 100%;
+	text-align: center;
+	width: 400px;
+}
 
+.sign-up-container h1 {
+  font-size: 4rem;
+	font-weight: bold;
+	margin: 32px;
+}
+span {
+	font-size: 1.7rem;
+  margin-bottom: 8px;
+}
+.sign-up-container span {
+	font-size: 1.7rem;
+    margin-bottom: 8px;
+}
+.sign-up-container a {
+	color: #333;
+	font-size: 18px;
+	text-decoration: none;
+	margin: 15px 0;
+}
+
+.sign-up-container input {
+	background-color: var(--input-background);
+	border: none;
+	padding: 12px 15px;
+	margin: 8px 0;
+	width: 100%;
+    border-radius: 6px;
+}
+.sign-up-container form button {
+	border-radius: 20px;
+    font-weight: bold;
+	border: 1px solid #9ae7ff;
+	background-color: #9ae7ff;
+    font-size: 1.6rem;
+	padding: 10px 40px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: transform 80ms ease-in;
+    cursor: pointer;
+    margin-top: 8px;
+    
+    
+}
 
 
 @keyframes slideIn {
@@ -83,4 +137,11 @@ a{
 }
 .pagination-item{
   margin: 0 4px;
+}
+
+.sign-up-container{
+  display: flex;
+  
+  justify-content: center;
+  flex: 1;
 }

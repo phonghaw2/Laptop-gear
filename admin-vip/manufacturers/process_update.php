@@ -1,4 +1,4 @@
-<?php 
+<?php require '../check_super_admin.php';
 if(empty($_POST['id']) ) {
     
     header('location:form_update.php?error=select ID to Edit ');

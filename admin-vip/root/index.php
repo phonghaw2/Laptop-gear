@@ -1,15 +1,23 @@
+<?php require '../check_admin.php' ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../base.css">
+    <link rel="stylesheet" href="../img/logo.jpg" enctype="multipart/form-data">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Document</title>
 </head>
 <body>
-    <h1>Display Admin</h1>
-    <?php 
-    include '../menu.php'
-    ?>
+    <div class="Nav-container">
+        <?php include '../menu.php'?>
+    </div>
+    <div class="main-container"> 
+        <div class="main-title">
+            <h1>Admin display</h1>
+        </div>
 </body>
 </html>

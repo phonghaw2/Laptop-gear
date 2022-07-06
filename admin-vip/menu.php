@@ -42,8 +42,14 @@
       </li>
       <li class="list">
         <a href="#">
-          <span class="icon"><ion-icon name="heart"></ion-icon></span>
-          <span class="title">Ads Manage</span>
+          <span class="icon"><ion-icon name="heart"></ion-icon></ion-icon></span>
+          <span class="title">Ads Management</span>
+        </a>
+      </li>
+      <li class="list">
+        <a href="../orders">
+          <span class="icon"><ion-icon name="receipt-outline"></ion-icon></span>
+          <span class="title">Orders Management</span>
         </a>
       </li>
     </ul>
