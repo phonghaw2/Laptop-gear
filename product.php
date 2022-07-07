@@ -1,4 +1,6 @@
-
+<?php 
+    require_once 'isset_token.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,18 +40,27 @@
                     </a>
                     
                 </div>
-                <div class="header-gap-auth header-btn">
-                    <a href="join/login.php">
+                <?php if(isset($_SESSION['id'])){  ?>
+                    <div class="header-gap-auth header-btn">
+                        <a href="join/logout.php">
+                        <span>Log out</span>
+                        </a>
+                        
+                    </div>
+                <?php } else { ?>
+                <div class="header-gap-auth  ">
+                    <a class="btn-icon-large header-btn" href="join/login.php">
                     <span>Login</span>
                     </a>
                     
                 </div>
-                <div class="header-gap-auth header-btn">
-                    <a href="join/signup.php">
+                <div class="header-gap-auth ">
+                    <a class="btn-icon-large header-btn" href="join/signup.php">
                     <span>Sign up</span>
                     </a>
                     
                 </div>
+                <?php  }  ?>
             </div>
         </div>
         <div class="body-content">

@@ -1,21 +1,6 @@
 <?php 
-session_start();
-if(isset($_COOKIE['remember'])){
-    $token = $_COOKIE['remember'];
-    require_once '../admin-vip/connect.php';
-    $sql = "select $ from customers
-    where token = '$token' limit 1";
-    $result = mysqli_query($connect,$sql);
-    $number_rows = mysqli_num_rows($result);
-    if($number_rows == 1 ){
-        $each = mysqli_fetch_array($result);
-        $_SESSION['id'] = $each['id'];
-        $_SESSION['fullname'] = $each['fullname'];
-    };
-   
-};
+    require_once 'isset_token.php';
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -77,7 +62,7 @@ if(isset($_COOKIE['remember'])){
                 <ul>
                     <li>
                         <span class="tooltip">Laptop</span>
-                        <a class="sidebar-link" href="#">
+                        <a class="sidebar-link" href="pages?style=1">
                             <img src="image/laptop.png" alt="laptop-img">        
                         </a>
                     </li>
@@ -88,7 +73,7 @@ if(isset($_COOKIE['remember'])){
                         <span class="tooltip">Computer</span>
                     </li>
                     <li>
-                        <a class="sidebar-link" href="#">
+                        <a class="sidebar-link" href="pages?style=4">
                             <img src="image/headphone.png" alt="headphone-img">
                         </a>
                         <span class="tooltip">Headphone</span>
@@ -106,13 +91,13 @@ if(isset($_COOKIE['remember'])){
                         <span class="tooltip">SSD</span>
                     </li>
                     <li>
-                        <a class="sidebar-link" href="#">
+                        <a class="sidebar-link" href="pages?style=3">
                         <img src="image/keyboard.png" alt="keyboard-img">
                         </a>
                         <span class="tooltip">Keyboard</span>
                     </li>
                     <li>
-                        <a class="sidebar-link" href="">
+                        <a class="sidebar-link" href="pages?style=2">
                         <img src="image/mouse.png" alt="mouse-img">
                         </a>
                         <span class="tooltip">Mouse</span>
@@ -120,9 +105,11 @@ if(isset($_COOKIE['remember'])){
                 </ul>
             </div>
             <div class="products-section">
-                <div class="product-laptop-container">
+                <div class="product-main-container">
                     <div class="product-hd">
-                        <div class="product-title">Laptop</div>
+                        <a href="pages/laptop.php">
+                            <button class="button-hd">Laptop</button>
+                        </a>
                     </div>
                     <ul class="swiper mySwiper product-slider">
                         <?php include 'products-section/laptop.php'  ?>
@@ -135,9 +122,11 @@ if(isset($_COOKIE['remember'])){
                         <div class="swiper-pagination"></div>
                     </ul>
                 </div>
-                <div class="product-mouse-container">
+                <div class="product-main-container">
                     <div class="product-hd">
-                        <div class="product-title">Mouse</div>
+                    <a href="pages/laptop.php">
+                            <button class="button-hd">Mouse</button>
+                        </a>
                     </div>
                     <ul class="swiper mySwiper product-slider">
                         <?php include 'products-section/mouse.php'  ?>
@@ -150,9 +139,11 @@ if(isset($_COOKIE['remember'])){
                         <div class="swiper-pagination"></div>
                     </ul>
                 </div>
-                <div class="product-keyboard-container">
+                <div class="product-main-container">
                     <div class="product-hd">
-                        <div class="product-title">Keyboard</div>
+                    <a href="pages/laptop.php">
+                            <button class="button-hd">Keyboard</button>
+                        </a>
                     </div>
                     <ul class="swiper mySwiper product-slider">
                         <?php include 'products-section/keyboard.php'  ?>
@@ -165,9 +156,11 @@ if(isset($_COOKIE['remember'])){
                         <div class="swiper-pagination"></div>
                     </ul>
                 </div>
-                <div class="product-headphone-container">
+                <div class="product-main-container">
                     <div class="product-hd">
-                        <div class="product-title">Headphone</div>
+                    <a href="pages/headphone.php">
+                            <button class="button-hd">Headphone</button>
+                        </a>
                     </div>
                     <ul class="swiper mySwiper product-slider">
                         <?php include 'products-section/headphone.php'  ?>
