@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../base.css">
     <link rel="stylesheet" href="../img/logo.jpg" enctype="multipart/form-data">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <title>Document</title>
 </head>
 <body>
@@ -28,19 +29,24 @@
         <?php 
             require_once '../connect.php';
             $search = '';
+            $style = 1;
             if(isset($_GET['search'])){
                  $search = $_GET['search'];
         
             }
+            if(isset($_GET['style'])){
+                 $style = $_GET['style'];
+        
+            }
             $sql_number_of = "select count(*) from products where 
-            products.name like '%$search%'";
+            products.name like '%$search%' and style_id = $style";
 
             require '../pagination.php';
             
             $sql = "select products.*,manufacturers.name as manufacturer_name  from products
             join manufacturers on products.manufacturer_id = manufacturers.id
             where 
-            products.name like '%$search%' limit $number_per_page offset $skip";
+            products.name like '%$search%' and style_id = $style limit $number_per_page offset $skip";
             $result = mysqli_query($connect,$sql);
         ?>
         <div class="search-bar">
@@ -48,6 +54,35 @@
                 <input type="search" name="search" id="search" value="<?php echo $search ?>">
                 <label for="search"><i class="fas fa-search"></i></label>        
             </form> 
+            <div class="filter">
+                <a href="">
+                    <label for="filter"><i class='bx bxs-filter-alt' ></i>Filter</label>
+                </a>
+                <div class="filter-item">
+                    <ul>
+                        <li>
+                            <a href="?style=1">
+                            <span class="title"><i class='bx bx-laptop' ></i>Laptop</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="?style=4">
+                            <span class="title"><i class='bx bx-headphone' ></i>Headphone</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="?style=3">
+                            <span class="title"><i class='bx bxs-keyboard' ></i>Keyboard</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="?style=2">
+                            <span class="title"><i class='bx bx-mouse-alt' ></i>Mouse</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
         <div class="table-product">
             <div class="table-heading">ID</div>
@@ -82,7 +117,7 @@
                 </li>
                 <?php for($i = 1 ; $i <= $pages; $i++) { ?>
                     <li class="pagination-item">
-                        <a href="?page=<?php echo $i ?>&search=<?php echo $search ?>">
+                        <a href="?page=<?php echo $i ?>&search=<?php echo $search?>&style=<?php echo $style?>">
                             <?php echo $i  ?>
                          </a>
                     </li>     

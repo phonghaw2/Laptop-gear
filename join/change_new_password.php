@@ -1,11 +1,14 @@
 <?php 
-
-    require_once 'isset_token.php';
-    if(isset($_SESSION['id'])){
-        header('location:../');
-        exit;
-    }
+session_start();
+$token = $_GET['token'];
+require_once '../connect.php';
+$sql = "select customer_id from forgot_password where token= '$token'";
+$result = mysqli_query($connect,$sql);
+if(mysqli_num_rows($result) === 0 ) {
+    header('location:../index.php');
+}
 ?>
+
     
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +21,7 @@
     <link rel="stylesheet" href="../footer.css">
     <link rel="stylesheet" href="auth.css">
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
-    <title>Login</title>
+    <title>New password</title>
 </head>
 <body>
     
@@ -41,7 +44,7 @@
                     
                 </div>
                 <div class="header-gap-auth header-btn">
-                    <a href="">
+                    <a href="login.php">
                     <span>Login</span>
                     </a>
                     
@@ -56,28 +59,20 @@
         </div>
         <div class="body-auth">
             <div class="sign-up-container">
-                <form method="POST" action="process_login.php">
+                <form method="POST" action="process_change_password.php">
                     <h1>Welcome !</h1>
                     <div class="social-container">
                         <a href="#" class="social"><i class='bx bxl-facebook' ></i></a>
                         <a href="#" class="social"><i class='bx bxl-google-plus' ></i></a>
                         <a href="#" class="social"><i class='bx bxl-linkedin' ></i></i></a>
                     </div>
-                    <span>or use your account</span>
-                    <?php if(isset($_SESSION['error'])) { ?>
-                        <div class="alert-error">
-                            <div>
-                            There was a problem logging in. Check your email and password or create an account.
-                            </div>
-                            <?php  unset($_SESSION['error']); ?>
-                        </div>
-                    <?php }  ?>   
-                    <input type="email" name="email" placeholder="Email" autocomplete="False"/>
-                    <input type="password" name="password" placeholder="Password" />
-                    <span> 
-                        <a href="forgot_password.php">Forgot your password?</a>
-                    </span>
-                    <button>Sign in</button>
+                    
+                    <span>Are u sure about that  (≧ ◡ ≦) </span>
+                    <input type="hidden" name="token" value="<?php echo $token ?>">
+                    <input type="text" name="new_password" placeholder="new password" autocomplete="False"/> 
+                    <input type="text" name="new_password2" placeholder="confirm a new password" autocomplete="False"/> 
+
+                    <button>Change</button>2
 		        </form>
             </div>
         </div>

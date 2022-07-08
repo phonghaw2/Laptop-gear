@@ -1,6 +1,5 @@
 <?php 
-
-    require_once 'isset_token.php';
+   require_once 'isset_token.php';
     if(isset($_SESSION['id'])){
         header('location:../');
         exit;
@@ -18,7 +17,7 @@
     <link rel="stylesheet" href="../footer.css">
     <link rel="stylesheet" href="auth.css">
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
-    <title>Login</title>
+    <title>Forgot password</title>
 </head>
 <body>
     
@@ -41,7 +40,7 @@
                     
                 </div>
                 <div class="header-gap-auth header-btn">
-                    <a href="">
+                    <a href="login.php">
                     <span>Login</span>
                     </a>
                     
@@ -56,14 +55,14 @@
         </div>
         <div class="body-auth">
             <div class="sign-up-container">
-                <form method="POST" action="process_login.php">
+                <form method="POST" action="process_forgot_password.php">
                     <h1>Welcome !</h1>
                     <div class="social-container">
                         <a href="#" class="social"><i class='bx bxl-facebook' ></i></a>
                         <a href="#" class="social"><i class='bx bxl-google-plus' ></i></a>
                         <a href="#" class="social"><i class='bx bxl-linkedin' ></i></i></a>
                     </div>
-                    <span>or use your account</span>
+                    <span>Are u sure about that  (≧ ◡ ≦) </span>
                     <?php if(isset($_SESSION['error'])) { ?>
                         <div class="alert-error">
                             <div>
@@ -72,12 +71,11 @@
                             <?php  unset($_SESSION['error']); ?>
                         </div>
                     <?php }  ?>   
-                    <input type="email" name="email" placeholder="Email" autocomplete="False"/>
-                    <input type="password" name="password" placeholder="Password" />
+                    <input type="email" name="email" placeholder="Email" autocomplete="False"/> 
                     <span> 
-                        <a href="forgot_password.php">Forgot your password?</a>
+                        <a href="#">Forgot your password?</a>
                     </span>
-                    <button>Sign in</button>
+                    <button>Change your password</button>
 		        </form>
             </div>
         </div>

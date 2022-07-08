@@ -95,19 +95,21 @@ body{
     height: 50px;
     line-height: 50px;
     margin: 0 5px;
-
+    display: flex;
+    align-items: center;
 }
 
 
 .navigation ul li a{
-    
+    height: 50px;
+    line-height: 50px;
     width: 100%;
     display: flex;
-    align-items: center;
     text-decoration: none;
     color: var(--text-color);
     transition: all .4s ease;
     border-radius: 12px;
+    
 }
 
 .navigation ul li a:hover{
@@ -135,8 +137,8 @@ body{
 .navigation ul li a .title{
     position: relative;
     display: block;
-    height: 55px;
-    line-height: 55px;
+    height: 50px;
+    line-height: 50px;
     white-space: nowrap;
     padding-left: 7px;
 }
@@ -344,10 +346,13 @@ input[type=text],input[type=file], select, textarea {
 
 .search-bar {
     text-align: center;
+    display: flex;
+    
+    
 }
 
 .search-bar form{
-    max-width: 80%;
+    width: 40%;
     margin: 0 auto;
     position: relative
 }
@@ -375,3 +380,79 @@ input[type=text],input[type=file], select, textarea {
     transition: all 0.2s ease;
     cursor: pointer;
 }
+.search-bar .filter label{
+    position: absolute;
+    right: 2%;
+    top: 50%;
+    transform: translatey(-50%);
+    color: #f89465;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.search-bar .filter{
+    width: 90px;
+    margin: 0 auto;
+    position: relative;
+    font-size: 2rem;
+}
+
+
+.filter:hover .filter-item{
+    display: block;
+}
+.filter-item{
+    border: 1px solid var(--border-color);
+    background: var(--sidebar-color);  
+    display: none;
+    position: absolute;
+    top: 30px;
+    left: 0px;
+    z-index: 10;
+    /* height: ; */
+    width: 200px;  
+    /* overflow-x: hidden; */
+    
+    /* transition: width 0.5s ease; */
+    padding: 5px 5px;
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+.filter-item ul li {
+    position: relative;
+    list-style: none;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    margin: 0 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.filter-item ul li a{
+    height: 30px;
+    line-height: 30px;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: all .4s ease;
+    border-radius: 12px;
+    align-items: center;
+    
+    
+}
+.filter-item ul li a .title{
+    position: relative;
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    white-space: nowrap;
+    padding-left: 2px;
+}
+.filter-item ul li a:hover{
+    color: rgb(75, 178, 247);
+    background: var(--text-color);
+    
+}
+
