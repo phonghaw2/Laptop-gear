@@ -11,7 +11,7 @@
   
     <ul>
       <li class="list">
-        <a href="#">
+        <a href="../dashboard">
           <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
           <span class="title">Dashboard</span>
         </a>

@@ -169,9 +169,10 @@ if(isset($_SESSION['cart'])) {
                                             </div>
                                             <div class="sc-action-link">
                                                 <div class="change-quantity">
-                                                    <a href="update-quantity.php?id=<?php echo $id?>&type=decre"><i class='bx bx-minus' ></i></a>
-                                                    <span><?php echo $each['quantity']?></span>
-                                                    <a href="update-quantity.php?id=<?php echo $id?>&type=incre"><i class='bx bx-plus'></i></a>
+                                                    <i class='bx bx-minus btn-update' data-id="<?php echo $id ?>" data-type="decre"></i>
+                                                    <span class="span-quantity"><?php echo $each['quantity']?></span>
+                                                    <i class='bx bx-plus btn-update' data-id="<?php echo $id ?>" data-type="incre"></i></a>
+                                                    
                                                 </div>
                                                 <div class="action-link">
                                                     <a href="delete-cart-item.php?id=<?php echo $id?>">
@@ -183,9 +184,10 @@ if(isset($_SESSION['cart'])) {
                                         </div>
                                     </div>
                                     <div class="price-of-card">
-                                        <span>
+                                        <span class="span-price"><?php echo $each['price']?></span>
+                                        <span class="span-sum-price">
                                             <?php $re_price = ($each['price'])*$each['quantity'];
-                                            echo number_format($re_price) ?>
+                                            echo number_format($re_price).'.0' ?>
                                         </span>
                                     </div>
                                 </div>
@@ -226,5 +228,41 @@ if(isset($_SESSION['cart'])) {
         
     </div>
     <?php include '../footer.php';  ?>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(function(){
+            $('.btn-update').click(function() { 
+                let btn = $(this);
+                let id = $(this).data('id');
+                let type = $(this).data('type');
+                $.ajax({
+                    type: "GET",
+                    url: "update-quantity.php",
+                    data: {id, type},
+                    
+                })
+                .done(function () {
+                        let parent_div = btn.parents('.cart-item');
+                        let price = parent_div.find('.span-price').text();
+                        let quantity = parent_div.find('.span-quantity').text();
+                        if(type == 'decre' && quantity > 1){
+                            quantity--;
+                        } else if(type == 'incre') {
+                            quantity++ ;                         
+                        };
+                        parent_div.find('.span-quantity').text(quantity);
+                        let sum = price * quantity;
+                        let hehe = sum.toFixed(1).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+                        // sum = sum.replace(/\d(?=(\d{3})+\.)/g, '$&,');
+                        parent_div.find('.span-sum-price').text(hehe);
+                        // let total = 0;
+                        // $(".span-sum-price").each(function(){
+                        //     total += 
+                        // })
+                });
+    
+            });
+        })
+    </script>
 </body>
 </html>

@@ -1,0 +1,52 @@
+.main-container div {
+    margin: 0;
+}
+.dashboard-container .date-export form,.dashboard-container .date-export .date-period, .order-type, .order-type-container{
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+.order-type-container{
+    width: 50%;
+}
+.order-type{
+    width: 100%;
+}
+.order-type span{
+
+    width: 300px;
+}
+.date-export{
+    padding: 0 24px 0 12px;
+    background: #fff;
+    -webkit-box-shadow: 0 1px 4px 0 rgb(0 0 0 / 10%);
+    box-shadow: 0 1px 4px 0 rgb(0 0 0 / 10%);
+    border-radius: 2px;
+    height: 50px;
+    color: #333;
+}
+
+.date-period{
+    padding: 12px 10px;
+    height: 100%;
+   
+}
+.date-input{
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 7px 12px;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    box-sizing: border-box;
+    cursor: pointer;
+    color: #333;
+    font-size: 14px;
+    line-height: 16px;
+    background-color: #fff;
+}
+
+.date-picker{
+    display: none;
+}

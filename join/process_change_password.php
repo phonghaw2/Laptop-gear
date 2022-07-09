@@ -1,7 +1,7 @@
 <?php 
 
 $token = $_POST['token'];
-$new_password = $_POST['new_password'];
+$new_password = addslashes($_POST['new_password']);
 
 require_once '../connect.php';
 
@@ -22,6 +22,7 @@ mysqli_query($connect,$sql);
 //(hosting : su dung cronjob de xoa )
 
 header('location:login.php');
+
 
 
 ?>

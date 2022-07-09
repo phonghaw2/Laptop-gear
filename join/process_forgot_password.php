@@ -5,7 +5,7 @@
         return $url;
     }
     
-    $email = $_POST['email'];
+    $email = addslashes($_POST['email']);
     require_once '../mail.php';
     require_once '../connect.php';
     $sql = "select * from customers where email = '$email'";

@@ -1,6 +1,6 @@
 <?php 
 
-    require_once 'isset_token.php';
+    require_once '../isset_token.php';
     if(isset($_SESSION['id'])){
         header('location:../');
         exit;

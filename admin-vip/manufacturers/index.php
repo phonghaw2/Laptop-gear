@@ -23,6 +23,12 @@
         </div>
         <div>
             <a href="form_insert.php">Add manufacturer</a>
+            <div class="header-gap-auth header-btn">
+                <a href="../process_logout.php">
+                    <span>Log out</span>
+                </a>
+                        
+            </div>
         </div>
         
         <?php 

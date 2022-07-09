@@ -1,7 +1,7 @@
 <?php  
  
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+    $email = addslashes($_POST['email']);
+    $password = addslashes($_POST['password']);
     
     require_once '../connect.php';
     $sql = "select * from customers 

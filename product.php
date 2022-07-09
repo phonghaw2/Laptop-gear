@@ -68,7 +68,7 @@
                 <ul>
                     <li>
                         <span class="tooltip">Laptop</span>
-                        <a class="sidebar-link" href="#">
+                        <a class="sidebar-link" href="pages?style=1">
                             <img src="image/laptop.png" alt="laptop-img">        
                         </a>
                     </li>
@@ -79,7 +79,7 @@
                         <span class="tooltip">Computer</span>
                     </li>
                     <li>
-                        <a class="sidebar-link" href="#">
+                        <a class="sidebar-link" href="pages?style=4">
                             <img src="image/headphone.png" alt="headphone-img">
                         </a>
                         <span class="tooltip">Headphone</span>
@@ -97,13 +97,13 @@
                         <span class="tooltip">SSD</span>
                     </li>
                     <li>
-                        <a class="sidebar-link" href="#">
+                        <a class="sidebar-link" href="pages?style=3">
                         <img src="image/keyboard.png" alt="keyboard-img">
                         </a>
                         <span class="tooltip">Keyboard</span>
                     </li>
                     <li>
-                        <a class="sidebar-link" href="">
+                        <a class="sidebar-link" href="pages?style=2">
                         <img src="image/mouse.png" alt="mouse-img">
                         </a>
                         <span class="tooltip">Mouse</span>

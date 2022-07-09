@@ -1,5 +1,6 @@
 <?php 
     require_once 'isset_token.php';
+    require_once 'check-rating.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -174,7 +175,16 @@
                     </ul>
                 </div>
             </div>
-            <div class="sub-content"></div>
+            <div class="sub-content">
+                <div class="rating">
+                    <i class='bx bxs-star'data-index="0"></i>
+                    <i class='bx bxs-star'data-index="1"></i>
+                    <i class='bx bxs-star'data-index="2"></i>
+                    <i class='bx bxs-star'data-index="3"></i>
+                    <i class='bx bxs-star'data-index="4"></i>             
+                </div>
+
+            </div>
         </div>       
     </div>
     <?php include 'footer.php';  ?>
@@ -182,28 +192,8 @@
     
     <!-- Swiper JS -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
-    <!-- Initialize Swiper -->
-    <script>
-        var swiper = new Swiper(".mySwiper", {
-            slidesPerView: 4,
-            spaceBetween: 30,
-            slidesPerGroup: 4,
-            loop: true,
-            loopFillGroupWithBlank: true,
-            pagination: {
-            el: ".swiper-pagination",
-            clickable: true,    
-            },
-            navigation: {
-            nextEl: ".next",
-            prevEl: ".prev",
-            // nextEl: ".next",
-            // prevEl: "prev",
-            },
-        });
-    </script>
-    
+    <script src="http://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
 </body>
 
 </html>

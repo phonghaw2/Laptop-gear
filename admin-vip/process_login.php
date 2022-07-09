@@ -1,7 +1,7 @@
 <?php 
 
-$name = $_POST['name'];
-$password = $_POST['password'];
+$name = addslashes($_POST['name']);
+$password = addslashes($_POST['password']);
 
 require_once 'connect.php';
 $sql = "select * from admin where name = '$name' and password = '$password'";

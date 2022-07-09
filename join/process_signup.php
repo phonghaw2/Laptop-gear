@@ -1,8 +1,8 @@
 <?php  
 
-    $fullname = $_POST['fullname'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+    $fullname = addslashes($_POST['fullname']);
+    $email = addslashes($_POST['email']);
+    $password = addslashes($_POST['password']);
     
     require_once '../connect.php';
     $sql = "select count(*) from customers where email = '$email'";

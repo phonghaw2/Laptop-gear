@@ -117,7 +117,7 @@
                 <?php foreach ($result as $each) { ?>
                     <div class="product-main-container">
                         <div class="product-hd">
-                            <a href="pages/laptop.php">
+                            <a href="#">
                                 <button class="button-hd"><?php echo $each['name']?></button>
                             </a>
                         </div>
