@@ -108,7 +108,7 @@
             <div class="products-section">
                 <div class="product-main-container">
                     <div class="product-hd">
-                        <a href="pages/laptop.php">
+                        <a href="pages?style=1">
                             <button class="button-hd">Laptop</button>
                         </a>
                     </div>
@@ -125,7 +125,7 @@
                 </div>
                 <div class="product-main-container">
                     <div class="product-hd">
-                    <a href="pages/laptop.php">
+                    <a href="pages?style=2">
                             <button class="button-hd">Mouse</button>
                         </a>
                     </div>
@@ -142,7 +142,7 @@
                 </div>
                 <div class="product-main-container">
                     <div class="product-hd">
-                    <a href="pages/laptop.php">
+                        <a href="pages?style=3">
                             <button class="button-hd">Keyboard</button>
                         </a>
                     </div>
@@ -159,7 +159,7 @@
                 </div>
                 <div class="product-main-container">
                     <div class="product-hd">
-                    <a href="pages/headphone.php">
+                    <a href="pages?style=4">
                             <button class="button-hd">Headphone</button>
                         </a>
                     </div>
@@ -175,7 +175,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="sub-content">
+            <div class="sub-content">   <!-- rating dung ajax + input trong form -->
                 <div class="rating">
                     <i class='bx bxs-star'data-index="0"></i>
                     <i class='bx bxs-star'data-index="1"></i>
@@ -189,7 +189,7 @@
     </div>
     <?php include 'footer.php';  ?>
     <?php mysqli_close($connect);  ?>
-    
+   
     <!-- Swiper JS -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="http://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>

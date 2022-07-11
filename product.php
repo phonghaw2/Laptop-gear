@@ -23,6 +23,7 @@
             $each = mysqli_fetch_array($result);                    
         ?>
     <div class="container">
+        
         <div class="header">
             <div class="header-left">
                 <span class="web-icon"></span>
@@ -132,10 +133,8 @@
                             <p>
                                 Don't have money ( ͡ᵔ ͜ʖ ͡ᵔ ), click <a style="color:#428bca" href="https://www.google.com/search?q=c%C3%A1ch+ki%E1%BA%BFm+ti%E1%BB%81n+nhanh+nh%E1%BA%A5t&oq=cach+kiem+tien+nhanh&aqs=edge.2.69i57j0i512l2j0i22i30l6.5035j0j1&sourceid=chrome&ie=UTF-8" target="_blank"> here </a>
                             </p>
-                            <div class="allowAdd2cart">
-                                <a href="cart/add2cart.php?id=<?php echo $each['id'] ?>">
-                                    <span> Add to cart</span>
-                                </a>
+                            <div class="allowAdd2cart">   
+                                    <span class="allowAdd2cart-btn" data-id="<?php echo $each['id'] ?>"> Add to cart</span>  
                             </div>
                         </div>
                     </div>
@@ -144,9 +143,45 @@
                 <!--  -->
             </div>
             <div class="sub-content"></div>
+            <div id="toast" class="toast-notification">
+                <div class="toast_success">
+                <div class="toast_icon">
+                    <i class='bx bx-check-circle'></i>
+                </div>
+                <div class="toast_body">
+                    <h3 class="toast_title">Add to cart! HEHE</h3>
+                </div>
+                <div class="toast_close">
+                    <i class='bx bxs-x-circle'></i>
+                </div>
+            </div>
+        </div>
         </div>
     </div>
     <?php include 'footer.php';  ?>
     <?php mysqli_close($connect)  ?>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(function(){
+            $('.allowAdd2cart-btn').click(function(){
+                let id = $(this).data('id');
+                $.ajax({
+                    type: "GET",
+                    url: "cart/add2cart.php",
+                    data: {id},
+                    success: function (response) {
+                        if(response == 1){
+                            $('.toast-notification').toggle('active');
+                            // $('.toast-notification').removeClass('active');
+                        } else {
+                            alert('that bai');
+                        }
+                    }
+                });
+            })
+
+        })
+
+    </script>
 </body>
 </html>

@@ -17,27 +17,12 @@ if(empty($_SESSION['cart'][$id])){
 }
 
 
-header('location:index.php')
+if(empty($_GET['id'])){
+    header('location:../index.php');
+}
+echo 1;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// if(empty($_SESSION['id'])){
-//     header('location:join/login.php');
-//     exit;
-// }
 
 
 ?>

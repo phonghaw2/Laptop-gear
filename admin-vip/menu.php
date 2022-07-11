@@ -35,7 +35,7 @@
         </a>
       </li>
       <li class="list">
-        <a href="#">
+        <a href="../analytics">
           <span class="icon"><ion-icon name="analytics"></ion-icon></span>
           <span class="title">Analytics</span>
         </a>

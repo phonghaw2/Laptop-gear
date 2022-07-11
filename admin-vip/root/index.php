@@ -19,5 +19,6 @@
         <div class="main-title">
             <h1>Admin display</h1>
         </div>
+    </div>
 </body>
 </html>
